@@ -1,0 +1,26 @@
+H:\c#\calnew\cal-endar\cal-endar\bin\Debug\cal-endar.exe.config
+H:\c#\calnew\cal-endar\cal-endar\bin\Debug\cal-endar.exe
+H:\c#\calnew\cal-endar\cal-endar\bin\Debug\cal-endar.pdb
+H:\c#\calnew\cal-endar\cal-endar\obj\Debug\cal-endar.csprojAssemblyReference.cache
+H:\c#\calnew\cal-endar\cal-endar\obj\Debug\cal_endar.Form1.resources
+H:\c#\calnew\cal-endar\cal-endar\obj\Debug\cal_endar.Properties.Resources.resources
+H:\c#\calnew\cal-endar\cal-endar\obj\Debug\cal-endar.csproj.GenerateResource.cache
+H:\c#\calnew\cal-endar\cal-endar\obj\Debug\cal-endar.csproj.CoreCompileInputs.cache
+H:\c#\calnew\cal-endar\cal-endar\obj\Debug\cal-endar.exe
+H:\c#\calnew\cal-endar\cal-endar\obj\Debug\cal-endar.pdb
+H:\c#\calnew\cal-endar\cal-endar\bin\Debug\fa\cal-endar.resources.dll
+H:\c#\calnew\cal-endar\cal-endar\obj\Debug\cal_endar.Form1.fa.resources
+H:\c#\calnew\cal-endar\cal-endar\obj\Debug\fa\cal-endar.resources.dll
+H:\c#\calnew\cal-endar\cal-endar - Copy\bin\Debug\cal-endar.exe.config
+H:\c#\calnew\cal-endar\cal-endar - Copy\bin\Debug\cal-endar.exe
+H:\c#\calnew\cal-endar\cal-endar - Copy\bin\Debug\cal-endar.pdb
+H:\c#\calnew\cal-endar\cal-endar - Copy\bin\Debug\fa\cal-endar.resources.dll
+H:\c#\calnew\cal-endar\cal-endar - Copy\obj\Debug\cal-endar.csprojAssemblyReference.cache
+H:\c#\calnew\cal-endar\cal-endar - Copy\obj\Debug\cal_endar.Form1.resources
+H:\c#\calnew\cal-endar\cal-endar - Copy\obj\Debug\cal_endar.Properties.Resources.resources
+H:\c#\calnew\cal-endar\cal-endar - Copy\obj\Debug\cal_endar.Form1.fa.resources
+H:\c#\calnew\cal-endar\cal-endar - Copy\obj\Debug\cal-endar.csproj.GenerateResource.cache
+H:\c#\calnew\cal-endar\cal-endar - Copy\obj\Debug\cal-endar.csproj.CoreCompileInputs.cache
+H:\c#\calnew\cal-endar\cal-endar - Copy\obj\Debug\fa\cal-endar.resources.dll
+H:\c#\calnew\cal-endar\cal-endar - Copy\obj\Debug\cal-endar.exe
+H:\c#\calnew\cal-endar\cal-endar - Copy\obj\Debug\cal-endar.pdb
