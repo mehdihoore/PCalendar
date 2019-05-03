@@ -27,6 +27,7 @@ namespace cal_endar
         
         int count1;
         int count=0;
+        
         public Form1()
         {
             InitializeComponent();
@@ -42,10 +43,11 @@ namespace cal_endar
             
             s = Convert.ToInt32((persian.GetDayOfWeek(DateTime.Now)));
             button5.Text ="امروز:" + string.Format(" {3} {2} {1} {0:d4}", y, pm[m - 1], d, wd[s + 1]);
+           
         }
         
 
-        private void Label5_Click(object sender, EventArgs e)
+        private void button6_Click(object sender, EventArgs e)
         {
             try
             {
@@ -54,8 +56,8 @@ namespace cal_endar
                 y = persian.GetYear(dateTimePicker1.Value);
                 m = persian.GetMonth(dateTimePicker1.Value);
                 d = persian.GetDayOfMonth(dateTimePicker1.Value);
-                int noflable6 = Array.IndexOf(pm, label6.Text);
-                string dt1 = string.Format("{2:d2}/{1:d2}/{0:d4}", label5.Text, noflable6 + 1, 1);
+                int noflable6 = Array.IndexOf(pm, button7.Text);
+                string dt1 = string.Format("{2:d2}/{1:d2}/{0:d4}", button6.Text, noflable6 + 1, 1);
 
                 DateTime dt2 = DateTime.ParseExact(dt1, "dd/MM/yyyy", CultureInfo.CurrentCulture);
                 dateTimePicker1.Value = dt2;
@@ -66,7 +68,7 @@ namespace cal_endar
                 MessageBox.Show("لطفا ماه و سال را انتخاب کنید");
             }
 
-            //label6.Text =dt2.ToString();
+            //button7.Text =dt2.ToString();
             //dataGridView1.ClearSelection();
         }
 
@@ -80,15 +82,18 @@ namespace cal_endar
             s = Convert.ToInt32((persian.GetDayOfWeek(dateTimePicker1.Value)));
             // label2.Text = string.Format("{3} {2} {1} {0:d4}", y, pm[m - 1], d, wd[s + 1]);
 
-            int m1= m+count1;
-            if (m1<12 && m1>=0)
+           
+            if (count1<12 )
             {
-                label6.Text = Convert.ToString(pm[m1]);
+                //int m1 = m + count1;
+                button7.Text = Convert.ToString(pm[count1]);
 
             }
             else
             {
-                m = 0;
+                count1 = 0;
+                button7.Text = Convert.ToString(pm[count1]);
+                // button7.Text = Convert.ToString(pm[m1]);
             }
             count1++;
         }
@@ -104,17 +109,20 @@ namespace cal_endar
             s = Convert.ToInt32((persian.GetDayOfWeek(dateTimePicker1.Value)));
             // label2.Text = string.Format("{3} {2} {1} {0:d4}", y, pm[m - 1], d, wd[s + 1]);
 
-            int m1 = m + count1;
-            if (m1 < 12 && m1 >= 0)
+            if (count1 >= 0)
             {
-                label6.Text = Convert.ToString(pm[m1]);
+                //int m1 = m + count1;
+                button7.Text = Convert.ToString(pm[count1]);
 
             }
             else
             {
-                m = 0;
+                count1 = 0;
+                button7.Text = Convert.ToString(pm[count1]);
+
+                // button7.Text = Convert.ToString(pm[m1]);
             }
-           
+
         }
 
         private void Label2_Click(object sender, EventArgs e)
@@ -127,14 +135,14 @@ namespace cal_endar
             dataGridView1.Rows.Clear();
             dataGridView1.Refresh();
             dateTimePicker1.Value = DateTime.Now;
-            label5.Text = persian.GetYear(DateTime.Now).ToString();
-            label6.Text = pm[persian.GetMonth(DateTime.Now)-1];
-            int y1 = 0, m1 = 0, d1 = 0, s2;
+            button6.Text = persian.GetYear(DateTime.Now).ToString();
+            button7.Text = pm[persian.GetMonth(DateTime.Now)-1];
+            int y1 = 0, m1 = 0, d1 = 0;
             y1 = persian.GetYear(DateTime.Now);
             m1 = persian.GetMonth(DateTime.Now);
             d1 = persian.GetDayOfMonth(DateTime.Now);
-            s2 = Convert.ToInt32(persian.GetDayOfWeek(DateTime.Now));
-            string today = $" {pm[m1 - 1]} {y1:d4} {d1}";
+            //s2 = Convert.ToInt32(persian.GetDayOfWeek(DateTime.Now));
+            //string today = $" {pm[m1 - 1]} {y1:d4} {d1}";
 
             //dataGridView1.Rows[i].Cells[j].Value = $" {pm[m1 - 1]} {y1:d4} {d1}";
 
@@ -154,8 +162,11 @@ namespace cal_endar
                         if (word1==d1 )
                         {
 
-                            dataGridView1.Rows[i].Cells[j].Style.SelectionBackColor = Color.DarkGreen;
+                            dataGridView1.Rows[i].Cells[j].Style.BackColor = Color.Red;
+                            dataGridView1.Rows[i].Cells[j].Style.ForeColor = Color.White;
                             
+
+
                         }
                         //else
                         //{
@@ -180,8 +191,8 @@ namespace cal_endar
                 y = persian.GetYear(dateTimePicker1.Value);
                 m = persian.GetMonth(dateTimePicker1.Value);
                 d = persian.GetDayOfMonth(dateTimePicker1.Value);
-                int noflable6 = Array.IndexOf(pm, label6.Text);
-                string dt1 = string.Format("{2:d2}/{1:d2}/{0:d4}", label5.Text, noflable6 + 1, 1);
+                int noflable6 = Array.IndexOf(pm, button7.Text);
+                string dt1 = string.Format("{2:d2}/{1:d2}/{0:d4}", button6.Text, noflable6 + 1, 1);
 
                 DateTime dt2 = DateTime.ParseExact(dt1, "dd/MM/yyyy", CultureInfo.CurrentCulture);
                 dateTimePicker1.Value = dt2;
@@ -194,6 +205,11 @@ namespace cal_endar
         }
 
         private void DataGridView1_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+
+        }
+
+        private void button7_Click(object sender, EventArgs e)
         {
 
         }
@@ -220,14 +236,15 @@ namespace cal_endar
                 DataGridView t = new DataGridView();
 
                 int iYear = persian.GetYear(dateTimePicker1.Value);
-                int noflable6 = Array.IndexOf(pm, label6.Text);
-                string dt1 = string.Format("{2:d2}/{1:d2}/{0:d4}", label5.Text, noflable6 + 1, 1);
+                int noflable6 = Array.IndexOf(pm, button7.Text);
+                string dt1 = string.Format("{2:d2}/{1:d2}/{0:d4}", button6.Text, noflable6 + 1, 1);
                 DateTime dt2 = DateTime.ParseExact(dt1, "dd/MM/yyyy", CultureInfo.CurrentCulture);
                 int oyear = persian.GetYear(dt2);
                 int month = persian.GetMonth(dt2);
                 //int s1= Convert.ToInt32((persian.GetDayOfWeek(dt2)));
                 int day = 1;
-
+                dataGridView1.Rows.Clear();
+                dataGridView1.Refresh();
                 //dataGridView1.Rows[0].Cells[s1].Value = string.Format("{3} {2} {1} {0:d4}", y, pm[m - 1], d, wd[s1]);
                 for (int i = 1; i < 5; i++)
                 {
@@ -244,7 +261,7 @@ namespace cal_endar
                         if (day <= persian.GetDaysInMonth(oyear, month))
                         {
                             int y1 = 0, m1 = 0, d1 = 0, s2, s3 ;
-                            string dt3 = string.Format("{2:d2}/{1:d2}/{0:d4}", label5.Text, noflable6 + 1, day++);
+                            string dt3 = string.Format("{2:d2}/{1:d2}/{0:d4}", button6.Text, noflable6 + 1, day++);
                             DateTime dt4 = DateTime.ParseExact(dt3, "dd/MM/yyyy", CultureInfo.CurrentCulture);
                             y1 = persian.GetYear(dt4);
                             m1 = persian.GetMonth(dt4);
@@ -252,7 +269,7 @@ namespace cal_endar
                             s2 = Convert.ToInt32(persian.GetDayOfWeek( dt4));
                             s3 = Array.IndexOf(wd, wd[s2+1]);
                             j = s3;
-                            dataGridView1.Rows[i].Cells[j].Value = $" {pm[m1 - 1]} {y1:d4} {d1}";
+                            dataGridView1.Rows[i].Cells[j].Value = $"{d1}";
                         }
 
 
@@ -283,7 +300,7 @@ namespace cal_endar
                 DataGridView t = new DataGridView();
 
                 int iYear = persian.GetYear(dateTimePicker1.Value);
-                int noflable6 = Array.IndexOf(pm, label6.Text);
+                int noflable6 = Array.IndexOf(pm, button7.Text);
                 string dt1 = string.Format("{2:d2}/{1:d2}/{0:d4}", y, m, 1);
                 DateTime dt2 = DateTime.ParseExact(dt1, "dd/MM/yyyy", CultureInfo.CurrentCulture);
                 int oyear = persian.GetYear(dt2);
@@ -315,7 +332,7 @@ namespace cal_endar
                             s2 = Convert.ToInt32(persian.GetDayOfWeek(dt4));
                             s3 = Array.IndexOf(wd, wd[s2 + 1]);
                             j = s3;
-                            dataGridView1.Rows[i].Cells[j].Value = $"  {pm[m1 - 1]} {y1:d4} {d1}";
+                            dataGridView1.Rows[i].Cells[j].Value = $"{d1}";
                         }
 
 
@@ -354,11 +371,12 @@ namespace cal_endar
                 y = persian.GetYear(dateTimePicker1.Value);
                 m = persian.GetMonth(dateTimePicker1.Value);
                 d = persian.GetDayOfMonth(dateTimePicker1.Value);
-                int noflable6 = Array.IndexOf(pm, label6.Text);
+                int noflable6 = Array.IndexOf(pm, button7.Text);
                 string result = Convert.ToString(dataGridView1.CurrentCell.Value);
                 string[] word = result.Split(' ');
-                int word1 =Convert.ToInt32( word[4]);
-                string dt1 = string.Format("{2:d2}/{1:d2}/{0:d4}", label5.Text, noflable6 + 1, word1);
+                //int word1 =Convert.ToInt32( word[4]);
+                int word1 = Convert.ToInt32(word[word.Length - 1]);
+                string dt1 = string.Format("{2:d2}/{1:d2}/{0:d4}", button6.Text, noflable6 + 1, word1);
                 
                 
                 DateTime dt2 = DateTime.ParseExact(dt1, "dd/MM/yyyy", CultureInfo.CurrentCulture);
@@ -370,7 +388,7 @@ namespace cal_endar
                 y = persian.GetYear(dateTimePicker1.Value);
                 m = persian.GetMonth(dateTimePicker1.Value);
                 d = persian.GetDayOfMonth(dateTimePicker1.Value);
-                //int noflable6 = Array.IndexOf(pm, label6.Text);
+                //int noflable6 = Array.IndexOf(pm, button7.Text);
                 string result = Convert.ToString(dataGridView1.CurrentCell.Value);
                 string[] word = result.Split(' ');
                 //.Substring(0, dataGridView1.CurrentCell.Value.ToString().Length-1);
@@ -405,7 +423,7 @@ namespace cal_endar
             // label2.Text = string.Format("{3} {2} {1} {0:d4}", y, pm[m - 1], d, wd[s + 1]);
 
 
-            label5.Text = Convert.ToString(y+count);
+            button6.Text = Convert.ToString(y+count);
             count++;
             
             //string year = dateTimePicker1.Value.ToString("yyyy");
@@ -425,11 +443,11 @@ namespace cal_endar
 
             s = Convert.ToInt32((persian.GetDayOfWeek(dateTimePicker1.Value)));
             count--;
-            label5.Text = Convert.ToString(y + count);
+            button6.Text = Convert.ToString(y + count);
              
 
 
-            //string dt1 = string.Format("{2:d2}/{1:d2}/{0:d4}", label5.Text, m, d);
+            //string dt1 = string.Format("{2:d2}/{1:d2}/{0:d4}", button6.Text, m, d);
            // DateTime dt2 = DateTime.ParseExact(dt1, "dd/MM/yyyy", CultureInfo.CurrentCulture);
            // dateTimePicker1.Value = dt2;
 
