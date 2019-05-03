@@ -170,6 +170,34 @@ namespace cal_endar
             }
         }
 
+        private void Button6_Click(object sender, EventArgs e)
+        {
+
+            try
+            {
+                dataGridView1.Rows.Clear();
+                dataGridView1.Refresh();
+                y = persian.GetYear(dateTimePicker1.Value);
+                m = persian.GetMonth(dateTimePicker1.Value);
+                d = persian.GetDayOfMonth(dateTimePicker1.Value);
+                int noflable6 = Array.IndexOf(pm, label6.Text);
+                string dt1 = string.Format("{2:d2}/{1:d2}/{0:d4}", label5.Text, noflable6 + 1, 1);
+
+                DateTime dt2 = DateTime.ParseExact(dt1, "dd/MM/yyyy", CultureInfo.CurrentCulture);
+                dateTimePicker1.Value = dt2;
+            }
+            catch (Exception)
+            {
+
+                MessageBox.Show("لطفا ماه و سال را انتخاب کنید");
+            }
+        }
+
+        private void DataGridView1_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+
+        }
+
         private void DateTimePicker1_ValueChanged(object sender, EventArgs e)
         {
             dateTimePicker1.CustomFormat = Application.CurrentCulture.DateTimeFormat.LongDatePattern;
